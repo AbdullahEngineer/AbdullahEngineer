@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullah Al-Zahrani | Infrastructure Security Engineer</title>
+    
+    <meta name="description" content="الموقع الشخصي للمهندس عبد الله أحمد الزهراني - مهندس أمن البنية التحتية والأنظمة الحاصل على شهادة CompTIA Security+.">
+    <meta name="keywords" content="Abdullah Al-Zahrani, Infrastructure Security Engineer, Active Directory, CompTIA Security+, VMware, Azure, Networking, Cybersecurity, Dammam">
+    <meta name="author" content="Abdullah Ahmad Al-Zahrani">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root 
+        {
+            --bg-main: #070e17;
+            --bg-card: #0d1826;
+            --border-dim: #1e2d3d;
+            --accent-green: #05cd99;
+            --accent-cyan: #00f2fe;
+            --text-white: #ffffff;
+            --text-gray: #8c9ba8;
+            --radius-lg: 16px;
+            --radius-md: 8px;
+        }
+
+        * 
+        {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body 
+        {
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container 
+        {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header Navigation */
+        header {
+            background: rgba(7, 14, 23, 0.95);
+            backdrop-filter: blur(12px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-dim);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .brand-logo {
+            font-family: 'Fira Code', monospace;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--accent-green); }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .lang-btn:hover {
+            background: var(--accent-green);
+            color: #000;
+        }
+
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Layout */
+        .hero {
+            padding: 140px 0 60px;
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: linear-gradient(180deg, #0f2030 0%, #0a1420 100%);
+            border: 1px solid var(--border-dim);
+            border-radius: var(--radius-lg);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .avatar-box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid var(--accent-green);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(5, 205, 153, 0.08);
+            box-shadow: 0 0 20px rgba(5, 205, 153, 0.2);
+        }
+
+        .avatar-box i { font-size: 2.8rem; color: var(--accent-green); }
+
+        .status-pill {
+            font-family: 'Fira Code', monospace;
+            background: rgba(5, 205, 153, 0.08);
+            border: 1px solid rgba(5, 205, 153, 0.3);
+            color: var(--accent-green);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.78rem;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+        .verified-badge {
+            background: rgba(5, 205, 153, 0.1);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 6px; }
+        .hero-content .subtitle { font-size: 1.25rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 18px; font-family: 'Fira Code', monospace; }
+        .hero-content .bio { color: var(--text-gray); font-size: 1.05rem; margin-bottom: 25px; line-height: 1.8; }
+
+        .cta-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+        .btn {
+            padding: 10px 22px;
+            border-radius: var(--radius-md);
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-green { background: var(--accent-green); color: #04140e; }
+        .btn-green:hover { box-shadow: 0 0 20px rgba(5, 205, 153, 0.4); transform: translateY(-2px); }
+        .btn-outline { background: transparent; border: 1px solid var(--border-dim); color: var(--text-white); }
+        .btn-outline:hover { border-color: var(--accent-green); color: var(--accent-green); transform: translateY(-2px); }
+        .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+
+        /* Sections Global */
+        section { padding: 50px 0; border-top: 1px solid var(--border-dim); }
+        .section-title { font-size: 1.6rem; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+        .section-title i { color: var(--accent-green); }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .card:hover { border-color: var(--accent-green); }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; flex-wrap: wrap; gap: 10px; }
+        .card-title { font-size: 1.15rem; font-weight: 700; color: var(--text-white); }
+        .company-name { color: var(--accent-cyan); font-weight: 600; font-size: 0.95rem; }
+        .location-tag { color: var(--text-gray); font-size: 0.82rem; margin-top: 2px; }
+        .date-text { color: var(--accent-green); font-size: 0.85rem; font-family: 'Fira Code', monospace; }
+
+        .bullet-list { list-style: none; margin-top: 10px; }
+        .bullet-list li {
+            position: relative;
+            padding-right: 20px;
+            color: var(--text-gray);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+        html[dir="ltr"] .bullet-list li { padding-right: 0; padding-left: 20px; }
+        
+        .bullet-list li::before {
+            content: "▹";
+            position: absolute;
+            right: 0;
+            color: var(--accent-green);
+        }
+        html[dir="ltr"] .bullet-list li::before { right: auto; left: 0; }
+
+        /* Certifications & Training Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-dim);
+            border-radius: var(--radius-lg);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .cert-card.featured {
+            border-color: var(--accent-green);
+            background: linear-gradient(180deg, #0d1826 0%, #0a1824 100%);
+            box-shadow: 0 0 15px rgba(5, 205, 153, 0.1);
+        }
+
+        .cert-card:hover { transform: translateY(-3px); }
+        .cert-top { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 15px; }
+
+        .cert-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(5, 205, 153, 0.1);
+            color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .cert-info h4 { font-size: 1rem; color: var(--text-white); margin-bottom: 4px; }
+        .cert-info p { font-size: 0.82rem; color: var(--text-gray); }
+        .cert-date { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: var(--accent-cyan); margin-top: 3px; }
+        
+        .cert-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            flex-wrap: wrap;
+        }
+
+        .cert-tag {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-family: 'Fira Code', monospace;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-gray);
+        }
+
+        .cert-tag.verified { background: rgba(5, 205, 153, 0.15); color: var(--accent-green); }
+
+        /* Contact Box */
+        .contact-box {
+            background: linear-gradient(180deg, #0d1826 0%, #070e17 100%);
+            border: 1px solid var(--accent-green);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-dim);
+            padding: 20px;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            color: var(--text-white);
+            transition: 0.3s;
+        }
+
+        .contact-item:hover { border-color: var(--accent-green); transform: translateY(-4px); }
+        .contact-item i { font-size: 1.8rem; color: var(--accent-green); margin-bottom: 8px; }
+
+        footer { padding: 25px 0; text-align: center; color: var(--text-gray); font-size: 0.88rem; border-top: 1px solid var(--border-dim); }
+
+        @media (max-width: 900px) {
+            .hero { grid-template-columns: 1fr; text-align: center; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .mobile-toggle { display: block; }
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border-dim);
+            }
+            .nav-links.active { display: flex; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="container navbar">
+            <a href="#" class="brand-logo"><i class="fas fa-shield-alt"></i> &lt;AA_SECURITY&gt;</a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" id="nav-about">عني</a></li>
+                <li><a href="#experience" id="nav-exp">الخبرات</a></li>
+                <li><a href="#skills" id="nav-skills">المهارات</a></li>
+                <li><a href="#certifications" id="nav-certs">الشهادات والدورات</a></li>
+                <li><a href="#education" id="nav-edu">التعليم</a></li>
+                <li><a href="#contact" id="nav-contact">التواصل</a></li>
+            </ul>
+
+            <div class="nav-controls">
+                <button class="lang-btn" onclick="toggleLanguage()"><i class="fas fa-globe"></i> English</button>
+                <button class="mobile-toggle" onclick="toggleMobileMenu()"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="container">
+        <section class="hero" id="about" style="border-top: none;">
+            <div class="profile-card">
+                <div class="avatar-box"><i class="fas fa-user-shield"></i></div>
+                <h3 id="hero-name-card">عبدالله الزهراني</h3>
+                <div class="location" id="hero-location">الدمام، المملكة العربية السعودية</div>
+                <div class="status-pill">SECURITY Engineer </div>
+            </div>
+
+            <div class="hero-content">
+                <div class="verified-badge"><i class="fas fa-certificate"></i> <span id="badge-text">حاصل على شهادة CompTIA Security+ المعتمَدة (Jun 2025)</span></div>
+                <h1 id="hero-fullname">عبدالله أحمد الزهراني</h1>
+                <div class="subtitle" id="hero-title">Infrastructure Security Engineer | مهندس أمن البنية التحتية</div>
+                <p class="bio" id="hero-bio">
+                    مهندس متخصص بخبرة أكثر من 4 سنوات في حماية وتأمين البنية التحتية للأنظمة والشبكات، إدارة الهويات الرقمية (Active Directory)، وإدارة الخدمات التشغيلية في البيئات الحرجة عالية التوافر (Mission-Critical Environments).
+                </p>
+                <div class="cta-buttons">
+                    <a href="#contact" class="btn btn-green" id="btn-contact">تواصل معي</a>
+                    
+                    <!-- [1] رابط تحميل السيرة الذاتية (CV) -->
+                    <a href="Abdullah Alzahrani- Infrastructure Security Engineer.pdf" target="_blank" class="btn btn-outline" id="btn-cv"><i class="fas fa-download"></i> السيرة الذاتية</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-briefcase"></i> <span id="title-exp">الخبرات المهنية العملية</span></h2>
+            <div id="experience-container"></div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-microchip"></i> <span id="title-skills">المهارات التقنية والأنظمة</span></h2>
+            <div id="skills-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;"></div>
+        </div>
+    </section>
+
+    <!-- Certifications & Training Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-award"></i> <span id="title-certs">الشهادات الاحترافية والدورات التدريبية</span></h2>
+            <div id="certs-container" class="certs-grid"></div>
+        </div>
+    </section>
+
+    <!-- Academic Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> <span id="title-edu">التعليم الأكاديمي</span></h2>
+            <div class="card">
+                <div class="card-header">
+                    <div>
+                        <div class="card-title" id="edu-degree">بكالوريوس هندسة الحاسب الآلي (Bachelor of Computer Engineering)</div>
+                        <div class="company-name" id="edu-school">جامعة الباحة (Al-Baha University)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2 id="contact-title">تواصل معي مباشرة</h2>
+                <p style="color: var(--text-gray); margin-top: 8px;" id="contact-sub">أنا متاح للفرص المتقدمة والاستشارات في أمن البنية التحتية والأنظمة.</p>
+                <div class="contact-grid">
+                    
+                    <!-- [2] رابط البريد الإلكتروني -->
+                    <a href="mailto:abdullah.ce07@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div id="contact-email">abdullah.ce07@gmail.com</div>
+                    </a>
+
+                    <!-- [3] رابط ملف لينكد إن LinkedIn -->
+                    <a href="https://www.linkedin.com/in/abdullah-a-al-zahrani-796bb1283/" target="_blank" class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>LinkedIn</div>
+                    </a>
+
+                    <!-- [4] رابط الاتصال/الواتساب الهاتف -->
+                    <a href="tel:0595908427" class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>0595908427</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Abdullah Ahmad Al-Zahrani &copy; 2026 | Infrastructure Security Engineer</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Data Engine -->
+    <script>
+        let currentLang = 'ar';
+
+        const content = {
+            ar: {
+                nav: { about: "عني", exp: "الخبرات", skills: "المهارات", certs: "الشهادات والدورات", edu: "التعليم", contact: "التواصل" },
+                hero: {
+                    cardName: "عبدالله الزهراني",
+                    location: "الدمام، المملكة العربية السعودية",
+                    badge: "حاصل على شهادة CompTIA Security+ الرسمية (Jun 2025)",
+                    fullname: "عبدالله أحمد الزهراني",
+                    title: "Infrastructure Security Engineer | مهندس أمن البنية التحتية",
+                    bio: "مهندس متخصص بخبرة أكثر من 4 سنوات في حماية وتأمين البنية التحتية للأنظمة والشبكات، إدارة الهويات الرقمية (Active Directory)، وإدارة الخدمات التشغيلية في البيئات الحرجة عالية التوافر (Mission-Critical Environments).",
+                    btnContact: "تواصل معي",
+                    btnCv: "تحميل السيرة الذاتية"
+                },
+                titles: { exp: "الخبرات المهنية العملية", skills: "المهارات التقنية والأنظمة", certs: "الشهادات الاحترافية والدورات التدريبية", edu: "التعليم الأكاديمي", contact: "تواصل معي مباشرة", contactSub: "أنا متاح للفرص المتقدمة والاستشارات في أمن البنية التحتية والأنظمة." },
+                edu: { degree: "بكالوريوس هندسة الحاسب الآلي (Bachelor of Computer Engineering)", school: "جامعة الباحة (Al-Baha University)" },
+                experiences: [
+                    {
+                        title: "مهندس أمن البنية التحتية (Infrastructure Security Engineer)",
+                        company: "شركة سعودي أفيتو لتقنية المعلومات | مطار الملك فهد الدولي بالدمام",
+                        location: "الدمام، المملكة العربية السعودية",
+                        date: "Oct 2025 - Present",
+                        bullets: [
+                            "دعم وصيانة البنية التحتية للأنظمة والشبكات لمطار الملك فهد الدولي مع تحقيق نسبة استقرار وتوافر للخدمة (Uptime) تفوق 99.9%.",
+                            "إدارة خدمات Active Directory شاملةً تهيئة الحسابات، صلاحيات الوصول، سياسات المجموعة (GPO)، وحوكمة هويات أكثر من 1,500 مستخدم وخادم.",
+                            "ضبط وصيانة الخدمات الشبكية الأساسية (DNS, DHCP, TCP/IP) لضمان اتصال آمن ومستقر عبر البيئة التشغيلية للمطار.",
+                            "تطبيق أفضل ممارسات أمن المعلومات وحماية الحسابات وتفعيل عناصر التحكم وإدارة المخاطر طبقاً للمعايير الأمنية."
+                        ]
+                    },
+                    {
+                        title: "أخصائي أمن معلومات (Information Security Specialist)",
+                        company: "وزارة الشؤون الإسلامية والدعوة والإرشاد",
+                        location: "الباحة، المملكة العربية السعودية",
+                        date: "Oct 2021 - Nov 2025",
+                        bullets: [
+                            "المشاركة في مراقبة أمن الشبكات والبنية التحتية وإجراء فحص وتقييم الثغرات الأمنية (Vulnerability Assessments) بشكل دوري.",
+                            "دعم عمليات أمن المعلومات ومتابعة الالتزام بالمعايير والسياسات الأمنية المعتمدة وتقليل مخاطر الوصول غير المصرح به."
+                        ]
+                    },
+                    {
+                        title: "أخصائي تقنية معلومات (IT Specialist)",
+                        company: "جمعية البر الخيرية بالمخواة",
+                        location: "المخواة، المملكة العربية السعودية",
+                        date: "Oct 2024 - Oct 2025",
+                        bullets: [
+                            "إدارة حماية الأطراف النهائية (Endpoint Security)، تنفيذ عمليات النسخ الاحتياطي (Backup Operations)، وتحديث خطط استمرارية الأعمال والدعم الفني."
+                        ]
+                    },
+                    {
+                        title: "أخصائي نظم معلومات (Information Systems Specialist)",
+                        company: "شركة سادانا (Sadana)",
+                        location: "مكة المكرمة، المملكة العربية السعودية",
+                        date: "Hajj Season 2025",
+                        bullets: [
+                            "دعم العمليات الرقمية للبنية التحتية والأنظمة الحساسة خلال موسم الحج وضمان سلامة ومزامنة البيانات في بيئة عالية الضغط."
+                        ]
+                    },
+                    {
+                        title: "أخصائي نظم معلومات (Information Systems Specialist)",
+                        company: "شركة سادانا (Sadana)",
+                        location: "مكة المكرمة، المملكة العربية السعودية",
+                        date: "Hajj Season 2024",
+                        bullets: [
+                            "إدارة قواعد البيانات الميدانية ودعم العمليات التشغيلية والأنظمة التقنية في المواقع الميدانية."
+                        ]
+                    }
+                ],
+                skills: [
+                    { name: "Infrastructure & Systems", items: ["Windows Server Administration", "Active Directory & GPOs", "Microsoft 365 Environment", "VMware Virtualization", "System Maintenance & Patching"] },
+                    { name: "Networking & Protocols", items: ["TCP/IP, DNS, DHCP Management", "Network Architecture & Troubleshooting", "Wireshark Packet Analysis", "Network Operations"] },
+                    { name: "Cybersecurity & IAM", items: ["Infrastructure Security Controls", "Access Control & Identity Management (IAM)", "Vulnerability Assessment", "Incident Management & Mitigation"] },
+                    { name: "Operations & Business Continuity", items: ["Infrastructure Monitoring", "Business Continuity Planning (BCP)", "Endpoint Protection", "Disaster Recovery Operations"] }
+                ],
+                certs: [
+                    { 
+                        name: "CompTIA Security+", 
+                        issuer: "CompTIA", 
+                        date: "Issued: Jun 24, 2025",
+                        status: "VERIFIED / ACTIVE", 
+                        icon: "fas fa-shield-alt",
+                        hasVerify: true,
+
+                        /* [5] رابط ملف PDF الخاص بالشهادة هنا */
+                        certLink: "CompTIA Security+ ce certificate.pdf", 
+
+                        /* [6] رابط التحقق الرسمي من Credly أو CompTIA هنا */
+                        verifyLink: "https://www.credly.com/your-badge-link" 
+                    },
+                    { 
+                        name: "Cisco Certified Network Associate (CCNA)", 
+                        issuer: "Cisco", 
+                        date: "Course Completed",
+                        status: "TRAINING", 
+                        icon: "fas fa-network-wired",
+                        hasVerify: false
+                    },
+                    { 
+                        name: "Microsoft Certified: Azure Fundamentals (AZ-900)", 
+                        issuer: "Microsoft", 
+                        date: "Course Completed",
+                        status: "TRAINING", 
+                        icon: "fab fa-microsoft",
+                        hasVerify: false
+                    },
+                    { 
+                        name: "CompTIA Linux+", 
+                        issuer: "CompTIA", 
+                        date: "Course Completed",
+                        status: "TRAINING", 
+                        icon: "fab fa-linux",
+                        hasVerify: false
+                    }
+                ]
+            },
+
+
+
+            en: {
+                nav: { about: "About", exp: "Experience", skills: "Skills", certs: "Certifications & Training", edu: "Education", contact: "Contact" },
+                hero: {
+                    cardName: "Abdullah Al-Zahrani",
+                    location: "Dammam, Saudi Arabia",
+                    badge: "Official CompTIA Security+ Certified (Jun 2025)",
+                    fullname: "Abdullah Ahmad Al-Zahrani",
+                    title: "Infrastructure Security Engineer",
+                    bio: "Security-oriented Infrastructure Security Engineer with 4+ years of hands-on experience supporting enterprise IT infrastructure, identity management (Active Directory), network services, and secure operational environments in mission-critical facilities.",
+                    btnContact: "Contact Me",
+                    btnCv: "Download Resume"
+                },
+                titles: { exp: "Work Experience", skills: "Technical Skills & Systems", certs: "Certifications & Training Courses", edu: "Academic Education", contact: "Get In Touch", contactSub: "Available for advanced opportunities and consulting in Infrastructure Security & Systems." },
+                edu: { degree: "Bachelor of Computer Engineering", school: "Al-Baha University" },
+                experiences: [
+                    {
+                        title: "Infrastructure Security Engineer",
+                        company: "Saudi AVITO IT Ltd. | King Fahd International Airport",
+                        location: "Dammam, Saudi Arabia",
+                        date: "Oct 2025 - Present",
+                        bullets:
+                        [
+                            "Support and maintain mission-critical IT infrastructure for King Fahd International Airport, maintaining a service uptime exceeding 99.9%.",
+                            "Administer Active Directory services, including user provisioning, access control, Group Policy administration (GPO), and identity governance for 1,500+ users & servers.",
+                            "Configure and maintain essential network services including DNS, DHCP, and TCP/IP to support reliable connectivity across airport operations.",
+                            "Apply information security best practices including access control, identity protection, and compliance with organizational policies."
+                        ]
+                    }
+                    ,
+                    {
+                        title: "Information Security Specialist",
+                        company: "Ministry of Islamic Affairs, Dawah and Guidance",
+                        location: "Al Baha, Saudi Arabia",
+                        date: "Oct 2021 - Nov 2025",
+                        bullets:
+                        [
+                            "Supported information security operations, network monitoring, and conducted regular vulnerability assessment activities.",
+                            "Supported organizational security awareness, compliance initiatives, and access control procedures to minimize risks."
+                        ]
+                    }
+                    ,
+                    {
+                        title: "IT Specialist",
+                        company: "Albir Charity Association",
+                        location: "Al Makhwah, Saudi Arabia",
+                        date: "Oct 2024 - Oct 2025",
+                        bullets: 
+                        [
+                            "Managed end-user computing environments, endpoint security, backup operations, business continuity, and disaster recovery practices."
+                        ]
+                    }
+                    ,
+                    {
+                        title: "Information Systems Specialist",
+                        company: "Sadana Company",
+                        location: "Makkah, Saudi Arabia",
+                        date: "Hajj Season 2025",
+                        bullets:
+                        [
+                            "Supported digital infrastructure operations, database integrity, and critical business systems during seasonal operations in high-pressure environments."
+                        ]
+                    }
+                    ,
+                    {
+                        title: "Information Systems Specialist",
+                        company: "Sadana Company",
+                        location: "Makkah, Saudi Arabia",
+                        date: "Hajj Season 2024",
+                        bullets:
+                        [
+                            "Supported IT operations, database administration, and maintained service availability during large-scale seasonal activities."
+                        ]
+                    }
+                ]
+                ,
+                skills:
+                [
+                    { name: "Infrastructure & Systems", items: ["Windows Server Administration", "Active Directory & GPOs", "Microsoft 365 Environment", "VMware Virtualization", "System Maintenance & Patching"] },
+                    { name: "Networking & Protocols", items: ["TCP/IP, DNS, DHCP Management", "Network Architecture & Troubleshooting", "Wireshark Packet Analysis", "Network Operations"] },
+                    { name: "Cybersecurity & IAM", items: ["Infrastructure Security Controls", "Access Control & Identity Management (IAM)", "Vulnerability Assessment", "Incident Management & Mitigation"] },
+                    { name: "Operations & Business Continuity", items: ["Infrastructure Monitoring", "Business Continuity Planning (BCP)", "Endpoint Protection", "Disaster Recovery Operations"] }
+                ]
+                ,
+                certs: [
+                    { 
+                        name: "CompTIA Security+", 
+                        issuer: "CompTIA", 
+                        date: "Issued: Jun 24, 2025",
+                        status: "VERIFIED / ACTIVE", 
+                        icon: "fas fa-shield-alt",
+                        hasVerify: true,
+
+                        /* [7] رابط الشهادة باللغة الإنجليزية */
+                        certLink: "CompTIA Security+ ce certificate.pdf", 
+
+                        /* [8] رابط التحقق باللغة الإنجليزية */
+                        verifyLink: "https://www.credly.com/your-badge-link" 
+                    },
+                    { 
+                        name: "Cisco Certified Network Associate (CCNA)", 
+                        issuer: "Cisco", 
+                        date: "In Progress",
+                        status: "TRAINING", 
+                        icon: "fas fa-network-wired",
+                        hasVerify: false
+                    },
+                    { 
+                        name: "Microsoft Certified: Azure Fundamentals (AZ-900)", 
+                        issuer: "Microsoft", 
+                        date: "Course Completed",
+                        status: "TRAINING", 
+                        icon: "fab fa-microsoft",
+                        hasVerify: false
+                    },
+                    { 
+                        name: "CompTIA Linux+", 
+                        issuer: "CompTIA", 
+                        date: "Course Completed",
+                        status: "TRAINING", 
+                        icon: "fab fa-linux",
+                        hasVerify: false
+                    }
+                ]
+            }
+        };
+
+        function renderPage() 
+        {
+            const data = content[currentLang];
+
+            // Nav links
+            document.getElementById('nav-about').innerText = data.nav.about;
+            document.getElementById('nav-exp').innerText = data.nav.exp;
+            document.getElementById('nav-skills').innerText = data.nav.skills;
+            document.getElementById('nav-certs').innerText = data.nav.certs;
+            document.getElementById('nav-edu').innerText = data.nav.edu;
+            document.getElementById('nav-contact').innerText = data.nav.contact;
+
+            // Hero section
+            document.getElementById('hero-name-card').innerText = data.hero.cardName;
+            document.getElementById('hero-location').innerText = data.hero.location;
+            document.getElementById('badge-text').innerText = data.hero.badge;
+            document.getElementById('hero-fullname').innerText = data.hero.fullname;
+            document.getElementById('hero-title').innerText = data.hero.title;
+            document.getElementById('hero-bio').innerText = data.hero.bio;
+            document.getElementById('btn-contact').innerText = data.hero.btnContact;
+
+            // Section titles
+            document.getElementById('title-exp').innerText = data.titles.exp;
+            document.getElementById('title-skills').innerText = data.titles.skills;
+            document.getElementById('title-certs').innerText = data.titles.certs;
+            document.getElementById('title-edu').innerText = data.titles.edu;
+            document.getElementById('contact-title').innerText = data.titles.contact;
+            document.getElementById('contact-sub').innerText = data.titles.contactSub;
+
+            // Education
+            document.getElementById('edu-degree').innerText = data.edu.degree;
+            document.getElementById('edu-school').innerText = data.edu.school;
+
+            // Experience items
+            const expContainer = document.getElementById('experience-container');
+            expContainer.innerHTML = '';
+            data.experiences.forEach(exp => 
+            {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="card-header">
+                        <div>
+                            <div class="card-title">${exp.title}</div>
+                            <div class="company-name">${exp.company}</div>
+                            <div class="location-tag"><i class="fas fa-map-marker-alt"></i> ${exp.location}</div>
+                        </div>
+                        <div class="date-text">${exp.date}</div>
+                    </div>
+                    <ul class="bullet-list">
+                        ${exp.bullets.map(b => `<li>${b}</li>`).join('')}
+                    </ul>
+                `;
+                expContainer.appendChild(card);
+            });
+
+            // Skills items
+            const skillsContainer = document.getElementById('skills-container');
+            skillsContainer.innerHTML = '';
+            data.skills.forEach(s => 
+            {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.style.marginBottom = '0';
+                card.innerHTML = `
+                    <h4 style="color: var(--accent-green); margin-bottom: 12px; font-size: 1.05rem;">${s.name}</h4>
+                    <ul class="bullet-list">
+                        ${s.items.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                `;
+                skillsContainer.appendChild(card);
+            });
+
+            // Certifications items
+            const certsContainer = document.getElementById('certs-container');
+            certsContainer.innerHTML = '';
+            data.certs.forEach(cert => 
+            {
+                const card = document.createElement('div');
+                card.className = `cert-card ${cert.hasVerify ? 'featured' : ''}`;
+                
+                let actions = '';
+                if (cert.hasVerify) {
+                    actions = `
+                        <div class="cert-actions">
+                            <span class="cert-tag verified">${cert.status}</span>
+                            
+                            <!-- زر عرض الشهادة PDF -->
+                            ${cert.certLink ? `<a href="${cert.certLink}" target="_blank" class="btn btn-outline btn-sm"><i class="fas fa-file-pdf"></i> PDF</a>` : ''}
+                            
+                            <!-- زر التحقق من الرابط الرسمي -->
+                            ${cert.verifyLink ? `<a href="${cert.verifyLink}" target="_blank" class="btn btn-green btn-sm"><i class="fas fa-external-link-alt"></i> Verify</a>` : ''}
+                        </div>
+                    `;
+                } 
+                else 
+                {
+                    actions = `<div class="cert-actions"><span class="cert-tag">${cert.status}</span></div>`;
+                }
+
+                card.innerHTML = `
+                    <div class="cert-top">
+                        <div class="cert-icon"><i class="${cert.icon}"></i></div>
+                        <div class="cert-info">
+                            <h4>${cert.name}</h4>
+                            <p>${cert.issuer}</p>
+                            <div class="cert-date">${cert.date}</div>
+                        </div>
+                    </div>
+                    ${actions}
+                `;
+                certsContainer.appendChild(card);
+            });
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'ar' ? 'en' : 'ar';
+            document.documentElement.lang = currentLang;
+            document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            const langBtn = document.querySelector('.lang-btn');
+            langBtn.innerHTML = `<i class="fas fa-globe"></i> ${currentLang === 'ar' ? 'English' : 'عربي'}`;
+            
+            renderPage();
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Initialize page
+        renderPage();
+    </script>
+</body>
+</html>
