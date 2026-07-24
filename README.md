@@ -6,7 +6,8 @@ A dedicated Security Operations & Infrastructure Systems Engineer focused on ent
 ---
 
 ### 🌐 Live Portfolio & CV
-* **Personal Website:** [Click here to view my Portfolio](https://abdullahengineer.github.io/AbdullahEngineer/)
+* **Personal Website:** [![Website](https://img.shields.io/badge/My_Portfolio-Visit_Website-blue?style=for-the-badge&logo=googlechrome&logoColor=white)](https://abdullahengineer.github.io/AbdullahEngineer/)
+
 * **Certifications:** CompTIA Security+ ce
 
 ---
@@ -14,7 +15,6 @@ A dedicated Security Operations & Infrastructure Systems Engineer focused on ent
 ### 💻 Tech Stack & Security Tools
 
 **Security & Operations:**
-`Splunk` `Microsoft Sentinel` `Active Directory` `Linux/Unix` `Wireshark`
 ![Splunk](https://img.shields.io/badge/Splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
 ![Microsoft Sentinel](https://img.shields.io/badge/Microsoft_Sentinel-0078D4?style=for-for-the-badge&logo=microsoft&logoColor=white)
 ![Active Directory](https://img.shields.io/badge/Active_Directory-0078D4?style=for-the-badge&logo=windows&logoColor=white)
