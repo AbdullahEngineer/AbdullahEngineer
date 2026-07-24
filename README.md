@@ -23,7 +23,6 @@ A dedicated Security Operations & Infrastructure Systems Engineer focused on ent
 
 ### 📊 GitHub Stats
 ![Abdullah's GitHub Stats](https://github-readme-stats.vercel.app/api?username=AbdullahEngineer&show_icons=true&theme=tokyonight)
-![Abdullah's GitHub Stats](https://github-readme-stats.vercel.app/api?username=AbdullahEngineer&show_icons=true&theme=tokyonight)
 
 ---
 
