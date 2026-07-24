@@ -15,6 +15,10 @@ A dedicated Security Operations & Infrastructure Systems Engineer focused on ent
 
 **Security & Operations:**
 `Splunk` `Microsoft Sentinel` `Active Directory` `Linux/Unix` `Wireshark`
+![Splunk](https://img.shields.io/badge/Splunk-000000?style=for-the-badge&logo=splunk&logoColor=white)
+![Microsoft Sentinel](https://img.shields.io/badge/Microsoft_Sentinel-0078D4?style=for-for-the-badge&logo=microsoft&logoColor=white)
+![Active Directory](https://img.shields.io/badge/Active_Directory-0078D4?style=for-the-badge&logo=windows&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 
 **Systems & Databases:**
 `Windows Server` `SQL Server` `Oracle DB` `OpenShift` `PHP` `HTML5/CSS3`
