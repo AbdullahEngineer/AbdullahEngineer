@@ -28,4 +28,4 @@ A dedicated Security Operations & Infrastructure Systems Engineer focused on ent
 
 ### 📫 Connect With Me
 * **LinkedIn:** [LinkedIn Profile](https://www.linkedin.com/in/abdullah-a-al-zahrani-796bb1283/ )
-* **Email:** [Contact via Email] (abdullah.ce07@gmail.com) 
+* **Email:** [abdullah.ce07@gmail.com](mailto:abdullah.ce07@gmail.com)
